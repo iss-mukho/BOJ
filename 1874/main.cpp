@@ -1,32 +1,34 @@
 #include <iostream>
 #include <stack>
+#include <string>
 using namespace std;
 stack<int> store;
-int input[100001] = {};
-char output[200001] = {};
+string output;
 int main() {
-	int n, comp_idx = 1, out_idx = 1;
+	ios::sync_with_stdio(0);
+	cin.tie(0); cout.tie(0);
+	int input[100001] = {};
+	int n, i, x, comp_idx = 1;
 	cin >> n;
-	int top = 0;
-	for (int i = 1; i <= n; i++)
+	for (i = 1; i <= n; ++i)
 		cin >> input[i];
-	for (int i = 1; i <= n; i++) {
+	int top = 0;
+	for (i = 1; i <= n; ++i) {
 		store.push(i);
-		output[out_idx++] = '+';
+		output += "+\n";
 		top = store.top();
-		for (int x = comp_idx; x <= i; x++) {
+		for (x = comp_idx; x <= i; ++x) {
 			if (top == input[comp_idx]) {
 				store.pop();
-				if(store.size())
+				if (store.size())
 					top = store.top();
-				output[out_idx++] = '-';
-				comp_idx++;
+				output += "-\n";
+				++comp_idx;
 			}
 		}
 	}
 	if (!store.size())
-		for (int i = 1; i <= n * 2; i++)
-			cout << output[i] << '\n';
+		cout << output << '\n';
 	else
 		cout << "NO" << '\n';
 	return 0;
