@@ -33,7 +33,7 @@ void push(int x) {
 	input.push_back(x);
 }
 int pop() {
-	if (input.size() == 0)
+	if (empty())
 		return -1;
 	int a = input.back();
 	input.pop_back();
