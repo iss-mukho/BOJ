@@ -10,15 +10,17 @@ struct mukho {
 };
 
 string S; int N;
+unordered_map<string, mukho> input;
+string in[100];
 int dp[1001];
-unordered_map<string, mukho> input; string in[100];
 int dfs(int idx);
+
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 	int M, i, X, temp;
 	string A;
-	
+
 	// ют╥б
 	cin >> S;
 	cin >> M;
@@ -41,8 +43,7 @@ int dfs(int idx) {
 	if (dp[idx] != -1)
 		return dp[idx];
 
-	string str;
-	int max_value = 0, i, score, len;
+	int i, score, len, max_value = 0;
 
 	for (string str: in) {
 		score = input[str].score; len = input[str].len;
