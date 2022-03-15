@@ -3,7 +3,6 @@ import sys
 RESULT = []
 
 def backtracking(cnt):
-
     if cnt == M:        
         for num in RESULT:
             print(num, end=' ')
