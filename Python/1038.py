@@ -4,8 +4,8 @@ input = sys.stdin.readline
 numbers = list()
 temp = list()
 
-def calc(cnt, n, m):
-    if cnt == m:
+def calc(cnt, d):
+    if cnt == d:
         temp_ = temp[:]
         temp_.sort(reverse=True)
         temp_str = "".join(map(str, temp_))
@@ -16,12 +16,12 @@ def calc(cnt, n, m):
         if i not in temp:
             if len(temp) == 0 or i > temp[-1]:
                 temp.append(i)
-                calc(cnt+1, n, m)
+                calc(cnt+1, d)
                 temp.pop()
 
 N = int(input())
-for i in range(1, 11):
-    calc(0, 9, i)
+for d in range(1, 11):
+    calc(0, d)
 
 numbers.sort()
 try:
