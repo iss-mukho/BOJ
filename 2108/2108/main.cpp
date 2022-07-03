@@ -32,6 +32,8 @@ int main() {
 		min_ = min(min_, number[i]);
 	}
 	double avg = round((double)sum / (double)N);
+	if (avg == -0)
+		avg = 0;
 	int mid = N / 2;
 	sort(number.begin(), number.end());
 	cout << avg << '\n';
