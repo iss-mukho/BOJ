@@ -25,12 +25,10 @@ def dijkstra(start):
     return dist
 
 N, M, X = map(int, input().split())
-
 graph = [[] for _ in range(N)]
 for _ in range(M):
     start, end, time = map(int, input().split())
     graph[start-1].append([time, end-1])
-
 
 result = -1
 for start in range(N):
