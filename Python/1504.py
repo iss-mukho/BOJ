@@ -6,6 +6,7 @@ INF = int(1e9)
 
 def dijkstra(start):
     dist = [INF for _ in range(N)]
+    dist[start] = 0
 
     hq = []
     heapq.heappush(hq, (0, start))
@@ -39,4 +40,4 @@ dist1 = dijkstra(v1)
 dist2 = dijkstra(v2)
 case = min(dist0[v1] + dist1[v2] + dist2[N-1], dist0[v2] + dist2[v1] + dist1[N-1])
 
-print(case if case != INF else -1)
+print(case if case < INF else -1)
