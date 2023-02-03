@@ -1,8 +1,8 @@
-// ¹éÁØ 1162: µµ·ÎÆ÷Àå(°ñµå I)
+// ë°±ì¤€ 1162: ë„ë¡œí¬ì¥(ê³¨ë“œ I)
 /**
-* Ã¹ ½Ãµµ: ±×·±°Ç ¾ø¾î¿ä~
-* ÈùÆ® 1: ÀÌÂ÷¿ø DP -> ´äÀº ¸Â´Âµ¥.. 1Â÷ °ËÁ¤Ã³·³ Á¤´äÀÌ ³ª¿ÀÁö ¾ÊÀ½
-* ÈùÆ® 2: cnt¸¦ ´õ ¶È¶ÈÇÏ°Ô °ü¸®ÇÏ¼¼¿ä(https://excited-hyun.tistory.com/157)
+* ì²« ì‹œë„: ê·¸ëŸ°ê±´ ì—†ì–´ìš”~
+* íŒíŠ¸ 1: ì´ì°¨ì› DP -> ë‹µì€ ë§ëŠ”ë°.. 1ì°¨ ê²€ì •ì²˜ëŸ¼ ì •ë‹µì´ ë‚˜ì˜¤ì§€ ì•ŠìŒ
+* íŒíŠ¸ 2: cntë¥¼ ë” ë˜‘ë˜‘í•˜ê²Œ ê´€ë¦¬í•˜ì„¸ìš”(https://excited-hyun.tistory.com/157)
 */
 #define _CRT_SECURE_NO_WARNINGS
 #include <cstdio>
@@ -41,12 +41,12 @@ void dijkstra(int start) {
 
 			ll nw = w + ew;
 
-			if (dist[e][cnt] > nw) { // ±âÁ¸ ´ÙÀÍ½ºÆ®¶ó: 'nw' = e + w
+			if (dist[e][cnt] > nw) { // ê¸°ì¡´ ë‹¤ìµìŠ¤íŠ¸ë¼: 'nw' = e + w
 				dist[e][cnt] = nw;
 				pq.push(n(-nw, pii(e, cnt)));
 			}
-			if (cnt < K) { // Ãß°¡ Æ÷ÀåÀÌ °¡´ÉÇÑ°¡
-				if (dist[e][cnt + 1] == INF || dist[e][cnt + 1] > w) { // 'e' = nw - ew
+			if (cnt < K) { // ì¶”ê°€ í¬ì¥ì´ ê°€ëŠ¥í•œê°€
+				if (dist[e][cnt + 1] > w) { // 'e' = nw - ew
 					dist[e][cnt + 1] = w;
 					pq.push(n(-w, pii(e, cnt + 1)));
 				}
@@ -56,21 +56,21 @@ void dijkstra(int start) {
 }
 
 int main() {
-	// ÀÔ·Â
+	// ì…ë ¥
 	scanf("%d %d %d", &N, &M, &K);
 	for (int i = 0; i < M; ++i) {
 		scanf("%d %d %d", &a, &b, &c);
 		graph[a].push_back(pli(c, b));
-		graph[b].push_back(pli(c, a)); // ¾ç¹æÇâ
+		graph[b].push_back(pli(c, a)); // ì–‘ë°©í–¥
 	}
 
-	// Ã³¸®: ´ÙÀÍ½ºÆ®¶ó
+	// ì²˜ë¦¬: ë‹¤ìµìŠ¤íŠ¸ë¼
 	for (int i = 1; i <= N; ++i)
 		for (int k = 0; k <= K; ++k)
 			dist[i][k] = INF;
 	dijkstra(1);
 
-	// Ãâ·Â
+	// ì¶œë ¥
 	for (int k = 0; k <= K; ++k)
 		answer = min(answer, dist[N][k]);
 	printf("%lld\n", answer);
