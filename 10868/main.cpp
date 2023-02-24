@@ -7,6 +7,7 @@ using namespace std;
 const int INF = 1000000001;
 const int MAX = 100000;
 int N, M, a, b, startIdx, numbers[MAX], tree[MAX * 3 + 1];
+// tree의 크기는 2^m * 2
 
 // 초기화
 void init() {
