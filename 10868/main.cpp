@@ -6,7 +6,7 @@ using namespace std;
 
 const int INF = 1000000001;
 const int MAX = 100000;
-int N, M, a, b, startIdx, numbers[MAX], tree[MAX * 2 + 1];
+int N, M, a, b, startIdx, numbers[MAX], tree[MAX * 3 + 1];
 
 // √ ±‚»≠
 void init() {
