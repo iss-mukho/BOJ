@@ -42,7 +42,7 @@ public class Main {
         while(!q.isEmpty()){
             int s = q.peek().f;
             int c = q.peek().c;
-            q.poll();
+            q.remove();
 
             if(s == G){
                 cnt = Math.min(cnt, c);
