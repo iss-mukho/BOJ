@@ -41,8 +41,8 @@ public class Main {
                 ++left;
                 right = left;
                 continue;
-            } else
-                ++right;
+            }
+            ++right;
         }
 
         // 출력
