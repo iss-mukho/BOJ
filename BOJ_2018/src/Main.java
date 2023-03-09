@@ -9,9 +9,11 @@ public class Main {
 
         int N, answer = 0;
 
+        // 입력
         StringTokenizer st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
 
+        // 처리: Two-Pointer
         int left = 1;
         int right = left;
 
