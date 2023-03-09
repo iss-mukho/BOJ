@@ -36,7 +36,7 @@ public class Main {
             x2 = Integer.parseInt(st.nextToken());
             y2 = Integer.parseInt(st.nextToken());
 
-            // 처리
+            // 출력
             bw.write(prefix[x2][y2] - prefix[x1-1][y2] - prefix[x2][y1-1] + prefix[x1-1][y1-1] + "\n");
         }
 
