@@ -15,34 +15,15 @@ public class Main {
 
         // 처리: Two-Pointer
         int left = 1;
-        int right = left;
+        int right = 1;
 
-        int sum = 0;
-        while(left <= N){
-            if(right > N) {
-                sum = 0;
-                ++left;
-                right = left;
-                continue;
-            }
-            sum += right;
+        int sum = 1;
+        while(left <= right){
+            if(N < right) break;
+            if(sum == N) ++answer;
 
-            if(sum == N){
-                ++answer;
-                sum = 0;
-
-                ++left;
-                right = left;
-                continue;
-            }
-            if(sum > N){
-                sum = 0;
-
-                ++left;
-                right = left;
-                continue;
-            }
-            ++right;
+            if(sum < N) sum += ++right;
+            else sum -= left++;
         }
 
         // 출력
