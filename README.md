@@ -1,4 +1,4 @@
-# BOJ: Backjoon Online Judge for Algorithm
+# BOJ: Baekjoon Online Judge for Algorithm
 
 Made By Mukho
 
