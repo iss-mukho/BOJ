@@ -24,16 +24,10 @@ public class Main {
                 number[i][j] = Integer.parseInt(st.nextToken());
         }
 
-        // 누적 합 초기화
-        prefix[1][1] = number[1][1];
-        for(int i=2; i<=N; ++i){
-            prefix[1][i] = prefix[1][i-1] + number[1][i];
-            prefix[i][1] = prefix[i-1][1] + number[i][1];
-        }
-        // 누적합 구하기
-        for(int i=2; i<=N; ++i)
-            for(int j=2; j<=N; ++j)
-                prefix[i][j] = prefix[i-1][j] + prefix[i][j-1] + number[i][j] - prefix[i-1][j-1];
+        // 누적 합 구하기
+        for(int i=1; i<=N; ++i)
+            for(int j=1; j<=N; ++j)
+                prefix[i][j] = number[i][j] + prefix[i-1][j] + prefix[i][j-1] - prefix[i-1][j-1];
 
         for(int i=0; i<M; ++i){
             st = new StringTokenizer(br.readLine());
