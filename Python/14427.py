@@ -3,13 +3,14 @@ import sys
 input = sys.stdin.readline
 
 MAX = 1000000000
+INDEX_MAX = 100000
 
 def init():
     global startIndex, tree
 
     while startIndex <= N:
         startIndex *= 2
-    tree = [[MAX, MAX/10000+1] for _ in range(startIndex * 3 + 1)] 
+    tree = [[MAX, INDEX_MAX+1] for _ in range(startIndex * 3 + 1)] # 메모리 초과 방지용
     for i in range(N):
         tree[startIndex + i] = [numbers[i], i+1]
     for i in range(startIndex-1, 0, -1):
