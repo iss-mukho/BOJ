@@ -14,10 +14,7 @@ def init():
     for i in range(N):
         tree[startIndex + i] = [numbers[i], i+1]
     for i in range(startIndex-1, 0, -1):
-        if tree[i*2] < tree[i*2+1]:
-            tree[i] = tree[i*2][:]
-        else:
-            tree[i] = tree[i*2+1][:]
+        tree[i] = min(tree[i*2], tree[i*2+1])
 
 def update(index, newNumber):
     tree[index][0] = newNumber
