@@ -21,9 +21,13 @@ M = list(map(int, input().split()))
 allParent = []
 for m in M:
     parent = [i for i in range(N+1)]
+    query = []
     for _ in range(m):
-        a, b = map(int, input().split())
-        if a > b: a, b = b, a
+        query.append(list(map(int, input().split())))
+
+    query.sort()
+    for q in query:
+        a, b = q
 
         if findParent(parent, a) != findParent(parent, b):
             unionParent(parent, a, b)
