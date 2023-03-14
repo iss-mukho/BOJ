@@ -3,6 +3,7 @@ import sys, heapq
 input = sys.stdin.readline
 
 answer = 0
+number = []
 plusHeapq = []
 minusHq = []
 convert = {
@@ -25,8 +26,6 @@ def process(hq, type):
 
 # 입력
 N = int(input())
-number = []
-
 for _ in range(N):
     number.append(int(input()))
 
@@ -36,7 +35,6 @@ for num in number:
         heapq.heappush(plusHeapq, -num)
     else:
         heapq.heappush(minusHq, num)
-
 process(plusHeapq, convert["plus"])
 process(minusHq, convert["minus"])
 
