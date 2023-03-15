@@ -1,7 +1,5 @@
 // 백준 2961: 도영이가 만든 맛있는 음식(실버 II), https://www.acmicpc.net/problem/2961
-
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
