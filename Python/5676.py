@@ -42,30 +42,20 @@ def update(index, newNumber):
     
 def getAnswer(left, right):
     ans = 1
+
     while left <= right:
         if left % 2 == 1:
             ans *= tree[left]
+            left += 1
         if right % 2 == 0:
             ans *= tree[right]
-        left = (left + 1) // 2
-        right = (right - 1) // 2
+            right -= 1
+        left //= 2
+        right //= 2
 
     if ans > 0: return '+'
     elif ans == 0: return '0'
     else: return '-'
-''' 최적화 예시
-def getAnswer(node, nodeLeft, nodeRight, left, right):
-    # 주어진 구간이 현재 노드가 나타내는 구간과 겹치지 않는 경우
-    if nodeRight < left or right < nodeLeft:
-        return 1
-
-    # 주어진 구간이 현재 노드가 나타내는 구간을 완전히 포함하는 경우
-    if left <= nodeLeft and nodeRight <= right:
-        return tree[node]
-
-    mid = (nodeLeft + nodeRight) // 2
-    return getAnswer(node * 2, nodeLeft, mid, left, right) * getAnswer(node * 2 + 1, mid + 1, nodeRight, left, right)
-'''
 
 while True:
     try:
