@@ -1,97 +1,79 @@
-#define _CRT_SECURE_NO_WARNINGS
-#include <cstdio>
-#include <cmath>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
-
-const int MAX = 100000;
-struct S {
-    int x, y, num, cnt, ans;
-} Q[MAX + 1];
-
-// countArray: 해당 index의 숫자가 얼마나 등장했는가
-// countArrayInQuery: 구간 쿼리에서 해당 index의 숫자가 얼마나 등장했는가
-int N, M, A[MAX + 1], sn, s, e, cMax, nMax = 0, countArray[MAX + 1], countArrayInQuery[MAX + 1];
-
-// 정렬 기준
-bool cmp1(S a, S b) {
-    if (a.x / sn == b.x / sn) return a.y < b.y;
-    return a.x / sn < b.x / sn;
+const int MAXN = 100005;
+int N, Q, sq, ans[MAXN], a[MAXN];
+struct query {
+    int l, r, idx;
+} q[MAXN];
+bool cmp(query x, query y) {
+    if (x.l / sq != y.l / sq) {
+        return x.l < y.l;
+    }
+    return x.r < y.r;
 }
-bool cmp2(S a, S b) {
-    return a.num < b.num;
-}
-
-// mo's algorithm
-void up(int idx) {
-    --countArrayInQuery[countArray[idx]];
-    if (countArray[idx] == cMax) {
-        ++cMax;
-        nMax = idx;
+map<int, int> cnt;
+void add(int x, int& freq_val, int& freq, int& max_val) {
+    cnt[a[x]]++;
+    if (cnt[a[x]] == freq_val) {
+        max_val = max(max_val, a[x]);
     }
-    ++countArray[idx];
-    if (countArray[idx] == cMax) {
-        if (nMax < idx) {
-            nMax = idx;
-        }
-    }
-    ++countArrayInQuery[countArray[idx]];
-}
-void down(int idx) {
-    if (countArray[idx] < cMax) {
-        if (countArrayInQuery[cMax] == 0) --cMax;
-        return;
-    }
-
-    if (countArrayInQuery[cMax] == 0) {
-        --cMax;
-        for (int i = MAX; i >= 0; --i) {
-            if (countArrayInQuery[i] > 0) {
-                cMax = i;
-                nMax = countArray[cMax];
-                break;
-            }
-        }
-    }
-    else {
-        nMax = countArray[cMax];
+    else if (cnt[a[x]] > freq_val) {
+        freq_val = cnt[a[x]];
+        freq = 1;
+        max_val = a[x];
     }
 }
-
+void del(int x, int& freq_val, int& freq, int& max_val) {
+    cnt[a[x]]--;
+    if (cnt[a[x]] == freq_val - 1) {
+        freq--;
+    }
+    else if (cnt[a[x]] == freq_val) {
+        max_val = max(max_val, a[x]);
+    }
+}
 int main() {
-    // 입력
-    scanf("%d %d", &N, &M);
-    sn = (int)sqrt(N) + 1;
-
-    for (int i = 1; i <= N; ++i)
-        scanf("%d", &A[i]);
-
-    for (int i = 1; i <= M; ++i) {
-        scanf("%d %d", &Q[i].x, &Q[i].y);
-        Q[i].num = i;
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    cin >> N >> Q;
+    sq = sqrt(N);
+    for (int i = 1; i <= N; i++) {
+        cin >> a[i];
     }
-
-    // 처리
-    countArrayInQuery[0] = 0;
-    sort(Q + 1, Q + M + 1, cmp1);
-    for (int i = Q[1].x; i <= Q[1].y; ++i)
-        up(A[i]);
-
-    s = Q[1].x; e = Q[1].y; Q[1].cnt = cMax, Q[1].ans = nMax;
-    for (int i = 2; i <= M; ++i) {
-        while (e < Q[i].y) up(A[++e]);
-        while (s > Q[i].x) up(A[--s]);
-        while (e > Q[i].y) down(A[e--]);
-        while (s < Q[i].x) down(A[s++]);
-
-        Q[i].cnt = cMax;
-        Q[i].ans = nMax;
+    for (int i = 1; i <= Q; i++) {
+        cin >> q[i].l >> q[i].r;
+        q[i].idx = i;
     }
-
-    // 출력
-    sort(Q + 1, Q + M + 1, cmp2);
-    for (int i = 1; i <= M; ++i)
-        printf("%d\n", Q[i].ans);
-
+    sort(q + 1, q + Q + 1, cmp);
+    int l = 1, r = 0;
+    int freq = 0, freq_val = 0, max_val = 0;
+    for (int i = 1; i <= Q; i++) {
+        while (l < q[i].l) {
+            del(l, freq_val, freq, max_val);
+            l++;
+        }
+        while (l > q[i].l) {
+            l--;
+            add(l, freq_val, freq, max_val);
+        }
+        while (r < q[i].r) {
+            r++;
+            add(r, freq_val, freq, max_val);
+        }
+        while (r > q[i].r) {
+            del(r, freq_val, freq, max_val);
+            r--;
+        }
+        if (freq == 1) {
+            ans[q[i].idx] = max_val;
+        }
+        else {
+            ans[q[i].idx] = max_val;
+        }
+    }
+    for (int i = 1; i <= Q; i++) {
+        cout << ans[i] << '\n';
+    }
     return 0;
 }

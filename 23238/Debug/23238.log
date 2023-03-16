@@ -1,2 +1,10 @@
 ﻿  main.cpp
-  23238.vcxproj -> C:\Users\KoMoGoon\Documents\GitHub\BOJ\23238\Debug\23238.exe
+C:\Users\KoMoGoon\Documents\GitHub\BOJ\23238\main.cpp(44,14): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\KoMoGoon\Documents\GitHub\BOJ\23238\main.cpp(57,34): error C2660: 'del': 함수는 3개의 인수를 사용하지 않습니다.
+C:\Users\KoMoGoon\Documents\GitHub\BOJ\23238\main.cpp(26,6): message : 'del' 선언을 참조하십시오.
+C:\Users\KoMoGoon\Documents\GitHub\BOJ\23238\main.cpp(62,34): error C2660: 'add': 함수는 3개의 인수를 사용하지 않습니다.
+C:\Users\KoMoGoon\Documents\GitHub\BOJ\23238\main.cpp(15,6): message : 'add' 선언을 참조하십시오.
+C:\Users\KoMoGoon\Documents\GitHub\BOJ\23238\main.cpp(66,34): error C2660: 'add': 함수는 3개의 인수를 사용하지 않습니다.
+C:\Users\KoMoGoon\Documents\GitHub\BOJ\23238\main.cpp(15,6): message : 'add' 선언을 참조하십시오.
+C:\Users\KoMoGoon\Documents\GitHub\BOJ\23238\main.cpp(69,34): error C2660: 'del': 함수는 3개의 인수를 사용하지 않습니다.
+C:\Users\KoMoGoon\Documents\GitHub\BOJ\23238\main.cpp(26,6): message : 'del' 선언을 참조하십시오.
