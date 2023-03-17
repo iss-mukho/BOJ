@@ -1,89 +1,101 @@
-// 백준 23238: Best Student(다이아몬드 V), https://www.acmicpc.net/problem/23238
-#define _CRT_SECURE_NO_WARNINGS
-#include <cstdio>
-#include <cmath>
-#include <algorithm>
+/**
+ * 백준 23238: Best Friend(다이아몬드 V), https://www.acmicpc.net/problem/23238
+ * Offline Query + Sqrt Decomposition + Mo's Algorithm
+ */
+#include <bits/stdc++.h> // need setting
 using namespace std;
 
-const int MAX_SIZE = 100000;
-const int MAX = 100000000;
+const int MAX = 100001;
+const int sn = 316;
 struct S {
-	int x, y, num, cnt, ans;
-} Q[MAX+1];
-
-// countArray: 해당 index의 숫자가 얼마나 등장했는가
-// countArrayInQuery: 구간 쿼리에서 해당 index의 숫자가 얼마나 등장했는가
-int N, M, A[MAX+1], sn, s, e, cMax, nMax = 0, countArray[MAX_SIZE+1], countArrayInQuery[MAX_SIZE+1];
-
-// 정렬 기준
-bool cmp1(S a, S b) {
-	if (a.x / sn == b.x / sn) return a.y < b.y;
-	return a.x / sn < b.x / sn;
+	int x, ox, num;
+} a[MAX]; // 각 위치의 원래 값 저장
+bool cmpX(S p,S q) {
+    return p.ox < q.ox;
 }
-bool cmp2(S a, S b) {
-	return a.num < b.num;
+bool cmpNum(S p, S q) {
+    return p.num < q.num;
 }
+struct Q {
+	int x, y, num;
+} b[MAX];
+bool cmp_Q(Q p, Q q) {
+	return (p.x/sn == q.x/sn) ? p.y < q.y : p.x/sn < q.x/sn;
+}
+
+int n, m, gn, s, e, p, q, mx;
+int countArray[MAX], countArrayInQuery[MAX], ans[MAX], arr[MAX], bNum[sn+1], num[sn+1][MAX];
 
 // mo's algorithm
 void up(int idx) {
-	--countArrayInQuery[countArray[idx]];
-	if (countArray[idx] == cMax) {
-        ++cMax;
-        nMax = idx;
-    }
-	++countArray[idx];
-    if (countArray[idx] == cMax) {
-        if(nMax < idx ){
-            nMax = idx;
-        }
-    }
-	++countArrayInQuery[countArray[idx]];
+	int idx2 = idx / sn;
+	if(countArray[idx] == bNum[idx2]) ++bNum[idx2];
+	--num[idx2][countArray[idx]++];
+	++num[idx2][countArray[idx]];
 }
 void down(int idx) {
-    --countArrayInQuery[countArray[idx]];
-    if (countArray[idx] == cMax && countArrayInQuery[cMax] == 0) {
-        while (countArrayInQuery[--cMax] == 0);
-    }
-    --countArray[idx];
-    ++countArrayInQuery[countArray[idx]];
+	int idx2 = idx / sn;
+	--num[idx2][countArray[idx]--];
+	++num[idx2][countArray[idx]];
+	if(num[idx2][bNum[idx2]] == 0) --bNum[idx2];
+}
+
+// 구간에서 가장 많이 등장한 수 찾기
+int getAnswer() {
+	int nIdx = gn-1, nMax = bNum[nIdx];
+	for(int i = gn-2; i > -1; --i)
+		if(nMax<bNum[i]) nMax = bNum[i], nIdx = i;
+
+	int current = -1, answer = -1;
+	for(int i = 0, j = sn * nIdx; i < sn && j < n; ++i, ++j)
+		if(current <= countArray[j]) current = countArray[j], answer = j;
+
+	return answer;
 }
 
 int main() {
-	// 입력
-	scanf("%d %d", &N, &M);
-	sn = sqrt(N) + 1;
+	ios::sync_with_stdio(false);
+	cin.tie(NULL); cout.tie(NULL);
+	
+	// 입력1
+	cin >> n >> m;
+	for(int i = 0; i < n; ++i) {
+		cin >> a[i].ox;
+		a[i].num = i;
+	}
+	sort(a, a+n, cmpX);
 
-	for (int i = 1; i <= N; ++i){
-        scanf("%d", &A[i]);
-    }
-		
+	a[0].x = 0; countArrayInQuery[0] = a[0].ox;
+	for(int i = 1; i < n; ++i) {
+		a[i].x = a[i-1].x + (a[i-1].ox != a[i].ox);
+		countArrayInQuery[a[i].x] = a[i].ox;
+	}
 
-	for (int i = 1; i <= M; ++i) {
-		scanf("%d %d", &Q[i].x, &Q[i].y);
-		Q[i].num = i;
+	mx = a[n-1].x;
+	gn = mx / sn + 1;
+	sort(a, a+n, cmpNum);
+	for(int i = 0; i < n; ++i)
+		arr[i] = a[i].x;
+	
+	for(int i = 0; i < m; ++i) {
+		cin >> p >> q;
+		b[i] = {--p, --q, i}; // new
 	}
 
 	// 처리
-	countArrayInQuery[0] = MAX_SIZE;
-	sort(Q + 1, Q + M + 1, cmp1);
-	for (int i = Q[1].x; i <= Q[1].y; ++i)
-        up(A[i]);
-
-	s = Q[1].x; e = Q[1].y; Q[1].cnt = cMax, Q[1].ans = nMax;
-	for (int i = 2; i <= M; ++i) {
-		while (e < Q[i].y) up(A[++e]);
-		while (s > Q[i].x) up(A[--s]);
-		while (e > Q[i].y) down(A[e--]);
-		while (s < Q[i].x) down(A[s++]);
-
-		Q[i].cnt = cMax;
-        Q[i].ans = nMax;
+	sort(b, b+m, cmp_Q); // x 좌표 기준으로 정렬
+	s = 0, e = -1;
+	for(int i = 0; i < m; ++i) {
+		while(e<b[i].y) up(arr[++e]);
+		while(s>b[i].x) up(arr[--s]);
+		while(e>b[i].y) down(arr[e--]);
+		while(s<b[i].x) down(arr[s++]);
+		ans[b[i].num] = getAnswer();
 	}
 
 	// 출력
-	sort(Q + 1, Q + M + 1, cmp2);
-	for (int i = 1; i <= M; ++i)
-		printf("%d\n", Q[i].ans);
+	for(int i = 0; i < m; ++i)
+		cout << countArrayInQuery[ans[i]] << '\n';
 
 	return 0;
 }
