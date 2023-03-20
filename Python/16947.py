@@ -23,7 +23,6 @@ def dfs(start, index, count):
             dfs(start, end, count)
 
 def bfs():
-    visited = [False for _ in range(N+1)]
     dq = deque()
     
     for i in range(1, N+1):
@@ -37,7 +36,7 @@ def bfs():
 
         for next in graph[cur]:
             if cycleStation[next]: continue
-            if visited[next]: continue
+            if dist[next] < dist[cur] + 1: continue
             
             dist[next] = dist[cur] + 1
             dq.append(next)
