@@ -16,7 +16,7 @@ def bfs(start):
     y = start[1]
 
     dq.append((x, y, 1, 0)) # x, y, dist, brokenCount
-    visited[x][y][0] = True
+    visited[0][x][y] = True
 
     while dq:
         cx, cy, dist, brokenCount = dq.popleft()
@@ -29,20 +29,21 @@ def bfs(start):
             ny = cy + dy[i]
 
             if not inRange(nx, ny): continue
-            if visited[nx][ny][brokenCount]: continue
-
+            
             if jido[nx][ny] == 0:
-                visited[nx][ny][brokenCount] = True
+                if visited[brokenCount][nx][ny]: continue
+                visited[brokenCount][nx][ny] = True
                 dq.append((nx, ny, dist + 1, brokenCount))
             else:
                 if brokenCount >= K: continue
-                visited[nx][ny][brokenCount + 1] = True
+                if visited[brokenCount + 1][nx][ny]: continue
+                visited[brokenCount + 1][nx][ny] = True
                 dq.append((nx, ny, dist + 1, brokenCount+1))
     return -1
                         
 N, M, K = map(int, input().split())
 jido = []
-visited = [[[False for _ in range(K+1)] for _ in range(M)] for _ in range(N)]
+visited = [[[False for _ in range(M)] for _ in range(N)] for _ in range(K+1)]
 for _ in range(N):
     jido.append(list(map(int, input().strip())))
 
