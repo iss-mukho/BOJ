@@ -1,3 +1,4 @@
+// 백준 1717: 집합의 표현(골드 V), https://www.acmicpc.net/problem/1717
 import java.io.*;
 import java.util.StringTokenizer;
 
