@@ -8,4 +8,4 @@ for i in range(N, N-M, -1):
 for i in range(M, 0, -1):
     b *= i
 
-print(int(a/b))
+print(a//b)
