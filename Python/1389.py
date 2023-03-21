@@ -24,4 +24,4 @@ for i in range(N):
     count[i] = sum(graph[i])
 
 minCount = min(count)
-print(count.index(minCount))
+print(count.index(minCount)+1)
