@@ -1,6 +1,0 @@
-#include <iostream>
-using namespace std;
-int main() {
-    cout << "ÆÄÀÌÆÃ!!\n";
-    return 0;
-}

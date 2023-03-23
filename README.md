@@ -15,12 +15,16 @@ Made By Mukho
 
 ### C++
 
-    In <0000> folder or 0000.cpp file.
+    **1_cpp** directory
 
 ### Python
 
-    In <Python> folder, there are 0000.py files.
+    **2_python** directory
 
 ### Java
 
-    In <BOJ_0000> folder.
+    **3_java** directory
+
+### JavaScript
+
+    **4_javascript** directory
