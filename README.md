@@ -15,16 +15,16 @@ Made By Mukho
 
 ### C++
 
-    **1_cpp** directory
+    1_cpp directory
 
 ### Python
 
-    **2_python** directory
+    2_python directory
 
 ### Java
 
-    **3_java** directory
+    3_java directory
 
 ### JavaScript
 
-    **4_javascript** directory
+    4_javascript directory
