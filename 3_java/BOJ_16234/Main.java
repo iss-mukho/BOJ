@@ -105,5 +105,4 @@ public class Main {
         }
         --day; // 마지막은 동작하지 않는 경우
     }
-
 }
