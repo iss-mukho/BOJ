@@ -13,18 +13,19 @@ Made By Mukho
 
 ## Language
 
+C++ = Python > Java >>>> JavaScript
+
 ### C++
 
-    1_cpp directory
+    ./1_cpp
 
 ### Python
 
-    2_python directory
-
+    ./2_python
 ### Java
 
-    3_java directory
+    ./3_java
 
 ### JavaScript
 
-    4_javascript directory
+    ./4_javascript
