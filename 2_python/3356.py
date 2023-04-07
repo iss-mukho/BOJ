@@ -16,3 +16,8 @@ table = [0 for _ in range(L)]
 
 KMP()
 print(L - table[-1])
+L = int(input())
+S = input().strip()
+table = [0 for _ in range(L)]
+KMP()
+print(L - table[-1])
