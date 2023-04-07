@@ -1,6 +1,9 @@
 # 백준 1701: Cubeditor(골드 III), https://acmicpc.net/problem/1701
+import sys
+input = sys.stdin.readline
+
 answer = 0
-text = input()
+text = input().strip()
 L = len(text)
 
 for patternStart in range(L-1):
