@@ -15,5 +15,5 @@ S = input().strip()
 table = [0 for _ in range(L)]
 
 KMP()
+print(*table)
 print(L - table[-1])
-
