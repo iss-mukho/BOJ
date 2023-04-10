@@ -31,14 +31,15 @@ void BFS(){
             pq.push(ppp(pii(-0, -graph[i][j]), pii(i, j)));
         }
     }
+
     while(!pq.empty()){
-        int curTime = -pq.top().first.first;
-        int curNum = -pq.top().first.second;
+        int time = -pq.top().first.first;
+        int num = -pq.top().first.second;
         int cx = pq.top().second.first;
         int cy = pq.top().second.second;
         pq.pop();
 
-        if(curTime == S) break;
+        if(time == S) break;
 
         for(int d=0; d<4; ++d){
             int nx = cx + dx[d];
@@ -49,8 +50,8 @@ void BFS(){
             if(graph[nx][ny] != 0) continue;
 
             visited[nx][ny] = true;
-            graph[nx][ny] = curNum;
-            pq.push(ppp(pii(-(curTime+1), -curNum), pii(nx, ny)));
+            graph[nx][ny] = num;
+            pq.push(ppp(pii(-(time+1), -num), pii(nx, ny)));
         }
     }
 }
@@ -62,9 +63,7 @@ int main(){
             scanf("%d", &graph[i][j]);
     scanf("%d %d %d", &S, &X, &Y);
 
-    for(int i=0; i<S; ++i)
-        BFS();
-
+    BFS();
     printf("%d\n", graph[X-1][Y-1]);
 
     return 0;
