@@ -12,9 +12,9 @@ for _ in range(N):
 for i in range(1, N+1):
     t, p = TP[i]
     dp[i] = max(dp[i], dp[i-1])
-    
+
     idx = i + t - 1
     if idx > N: continue
     dp[idx] = max(dp[idx], dp[i-1] + p)
 
-print(max(dp))
+print(dp[-1])
