@@ -12,7 +12,7 @@ for i in range(4, N+1):
     num = pow(3, (i-4)//3) * ((i-1) % 3 + 1)
     dp[i] = (dp[i-1] + num) % MOD
 
-    # 다른 규칙
+    # 다른 풀이
     dp[i] = (2 * dp[i-2]) % MOD if i%3 else (3 * dp[i-3]) % MOD
 
 print(dp[N])
