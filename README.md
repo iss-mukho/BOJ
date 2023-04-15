@@ -13,7 +13,7 @@ Made By Mukho
 
 ## Language
 
-C++ = Python > Java >>>> JavaScript
+C++ = Python > Java >>> JavaScript
 
 ### C++
 
@@ -22,6 +22,7 @@ C++ = Python > Java >>>> JavaScript
 ### Python
 
     ./2_python
+
 ### Java
 
     ./3_java
