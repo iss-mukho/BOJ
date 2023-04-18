@@ -31,7 +31,4 @@ for _ in range(T):
         print('error')
         continue
 
-    if isBack:
-        print('['+','.join(dq)+']')
-    else:
-        print('['+','.join(list(dq)[::-1])+']')
+    print('['+','.join(dq)+']' if isBack else '['+','.join(list(dq)[::-1])+']')
