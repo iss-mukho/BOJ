@@ -2,7 +2,7 @@
 import sys
 input = sys.stdin.readline
 
-answer = 0
+answer = 1
 N = int(input())
 number = list(map(int, input().split()))
 
