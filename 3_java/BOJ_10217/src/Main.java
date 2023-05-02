@@ -6,31 +6,31 @@ import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class Main {
-    static final int COST_LIMIT = 10001;
+    static final int INF = Integer.MAX_VALUE / 2; // 맞왜틀의 원인
 
     static int T;
     static int N, M, K;
     static int u, v, c, d;
     static int[][] dist;
-    static ArrayList<ArrayList<info>> graph = new ArrayList<>();
+    static ArrayList<ArrayList<info>> graph = new ArrayList<>(); // 인접 리스트 표현 최적화 필요?
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
     public static class info implements Comparable<info> {
         int destination;
-        int time;
         int cost;
+        int time;
 
-        public info(int destination, int time, int cost) {
+        public info(int destination, int cost, int time) {
             this.destination = destination;
-            this.time = time;
             this.cost = cost;
+            this.time = time;
         }
 
         @Override
         public int compareTo(info o) {
-            return (this.time != o.time) ? this.time - o.cost : this.cost - o.time;
+            return (this.time != o.time) ? this.time - o.time : this.cost - o.cost;
         }
     }
 
@@ -63,18 +63,16 @@ public class Main {
             c = Integer.parseInt(st.nextToken());
             d = Integer.parseInt(st.nextToken());
 
-            graph.get(u).add(new info(v, d, c));
+            graph.get(u).add(new info(v, c, d));
         }
     }
 
     public static void init() {
         dist = new int[N+1][M+1];
-        for(var row: dist) {
-            Arrays.fill(row, COST_LIMIT);
-        }
+        graph = new ArrayList<>(); // 여러 초기화 방법 존재
 
-        graph.clear();
         for(int i=0; i<=N; ++i) {
+            Arrays.fill(dist[i], INF);
             graph.add(new ArrayList<>());
         }
     }
@@ -87,8 +85,12 @@ public class Main {
         while(!pq.isEmpty()) {
             info front = pq.poll();
             int s = front.destination;
-            int t = front.time;
             int c = front.cost;
+            int t = front.time;
+
+            if(s == N) {
+                break;
+            }
 
             if(dist[s][c] < t) {
                 continue;
@@ -96,8 +98,8 @@ public class Main {
 
             for(var nextInfo: graph.get(s)) {
                 int e = nextInfo.destination;
-                int nt = t + nextInfo.time;
                 int nc = c + nextInfo.cost;
+                int nt = t + nextInfo.time;
 
                 if(nc > M) {
                     continue;
@@ -107,19 +109,25 @@ public class Main {
                     continue;
                 }
 
-                dist[e][nc] = nt;
-                pq.add(new info(e, nt, nc));
+                // dp 최적화
+                for(int i=nc; i<=M; ++i) {
+                    if(dist[e][i] > nt) {
+                        dist[e][i] = nt;
+                    }
+                }
+                pq.add(new info(e, nc, nt));
             }
         }
     }
 
     public static void output() throws IOException {
         int answer = getAnswer();
-        bw.write((answer != COST_LIMIT ? answer : "Poor KCM") + "\n");
+        bw.write((answer != INF ? answer : "Poor KCM") + "\n");
+        bw.flush();
     }
 
     public static int getAnswer() {
-        int answer = COST_LIMIT;
+        int answer = INF;
         for(int i=0; i<=M; ++i) {
             answer = Math.min(answer, dist[N][i]);
         }
