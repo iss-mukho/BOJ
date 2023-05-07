@@ -1,5 +1,6 @@
 # 백준 2533: 사회망 서비스(SNS)(골드 III), https://www.acmicpc.net/problem/2533
 import sys
+sys.setrecursionlimit(1000000)
 input = sys.stdin.readline
 
 # Bottom-Up
