@@ -17,7 +17,7 @@ def query(start, end, left, right, node):
     if end < left or right < start: return 0
     if left <= start and end <= right: return tree[node]
     return query(start, (start + end) // 2, left, right, node * 2) + query((start + end) // 2 + 1, end, left, right, node * 2 + 1)
-
+     
 answer = 0
 N = int(input())
 number = [0] * MAX
