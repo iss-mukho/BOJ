@@ -1,5 +1,7 @@
 ### C++ ###
 
+/1_cpp/*/Debug
+
 # Compiled Object files
 *.slo
 *.lo
