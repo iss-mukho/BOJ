@@ -1,4 +1,0 @@
-﻿  main.cpp
-C:\Users\KoMoGoon\Documents\GitHub\BOJ\1_cpp\1786\main.cpp(15,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\KoMoGoon\Documents\GitHub\BOJ\1_cpp\1786\main.cpp(21,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  1786.vcxproj -> C:\Users\KoMoGoon\Documents\GitHub\BOJ\1_cpp\1786\Debug\1786.exe
