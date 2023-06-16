@@ -13,7 +13,7 @@ Made By Mukho
 
 ## Language
 
-C++ = Python > Java >>> JavaScript
+C++ = Python > Java >> JavaScript >>> Kotlin
 
 ### C++
 
@@ -30,3 +30,7 @@ C++ = Python > Java >>> JavaScript
 ### JavaScript
 
     ./4_javascript
+
+### Kotlin
+
+    ./5_kotlin
