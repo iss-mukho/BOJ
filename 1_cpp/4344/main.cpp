@@ -1,0 +1,51 @@
+// 백준 4344: 평균은 넘겠지(브론즈 I), https://www.acmicpc.net/problem/4344
+#include <iostream>
+using namespace std;
+
+const int MAX = 1001;
+
+int C, N;
+double student[MAX];
+
+void output(int overCount) {
+	cout << fixed;
+	cout.precision(3);
+
+	double answer = overCount / (double)N * 100;
+	cout << answer << "%\n";
+}
+
+void solve(double totalScore) {
+	int overCount = 0;
+
+	double avgScore = totalScore / (double)N;
+	for (int n = 0; n < N; ++n)
+		if (student[n] > avgScore) ++overCount;
+
+	output(overCount);
+}
+
+void input() {
+	cin >> C;
+
+	for (int c = 0; c < C; ++c) {
+		double totalScore = 0;
+
+		cin >> N;
+		for (int n = 0; n < N; ++n) {
+			cin >> student[n];
+			totalScore += student[n];
+		}
+
+		solve(totalScore);
+	}
+}
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL); cout.tie(NULL);
+
+	input();
+
+	return 0;
+}
