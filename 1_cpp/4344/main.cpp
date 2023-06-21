@@ -1,5 +1,7 @@
 // 백준 4344: 평균은 넘겠지(브론즈 I), https://www.acmicpc.net/problem/4344
 #include <iostream>
+#include <string>
+#include <cmath>
 using namespace std;
 
 const int MAX = 1001;
@@ -7,12 +9,18 @@ const int MAX = 1001;
 int C, N;
 double student[MAX];
 
+double customRound(double number) {
+	int n = to_string(number).length() + 1;
+	double result = number + pow(10, -n);
+	return round(result * 1000) / 1000.0;
+}
+
 void output(int overCount) {
 	cout << fixed;
 	cout.precision(3);
 
 	double answer = overCount / (double)N * 100;
-	cout << answer << "%\n";
+	cout << customRound(answer) << "%\n";
 }
 
 void solve(double totalScore) {
