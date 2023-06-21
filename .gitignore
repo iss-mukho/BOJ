@@ -2,6 +2,10 @@
 
 /1_cpp/*/Debug
 
+### Java ###
+
+/3_java/*/out
+
 # Compiled Object files
 *.slo
 *.lo
