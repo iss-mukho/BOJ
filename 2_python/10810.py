@@ -1,4 +1,4 @@
-# 백준 10810: 공 넣기(브론즈 III)
+# 백준 10810: 공 넣기(브론즈 III), https://www.acmicpc.net/problem/10810
 N, M = map(int, input().split())
 
 basket = [0] * (N)
