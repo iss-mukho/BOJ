@@ -6,13 +6,14 @@ import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class Main {
-    static final int INF = Integer.MAX_VALUE / 2; // 맞왜틀의 원인
+    static final int INF = Integer.MAX_VALUE;
 
     static int T;
     static int N, M, K;
     static int u, v, c, d;
     static int[][] dist;
-    static ArrayList<ArrayList<info>> graph = new ArrayList<>(); // 인접 리스트 표현 최적화 필요?
+    static int answer = INF;
+    static ArrayList<ArrayList<info>> graph = new ArrayList<>();
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -30,7 +31,7 @@ public class Main {
 
         @Override
         public int compareTo(info o) {
-            return (this.time != o.time) ? this.time - o.time : this.cost - o.cost;
+            return this.cost - o.cost;
         }
     }
 
@@ -39,8 +40,8 @@ public class Main {
 
         for(; T>0; T--) {
             input();
-            dijkstra(1);
-            output();
+            dijkstra();
+            bw.write((answer == INF ? "Poor KCM" : answer) + "\n");
         }
 
         bw.flush();
@@ -68,19 +69,23 @@ public class Main {
     }
 
     public static void init() {
-        dist = new int[N+1][M+1];
+        answer = INF;
+        dist = new int[N + 1][M + 1];
         graph = new ArrayList<>(); // 여러 초기화 방법 존재
 
         for(int i=0; i<=N; ++i) {
             Arrays.fill(dist[i], INF);
             graph.add(new ArrayList<>());
         }
+
+        for(int i=0; i<=M; ++i) {
+            dist[1][i] = 0;
+        }
     }
 
-    public static void dijkstra(int start) {
+    public static void dijkstra() {
         PriorityQueue<info> pq = new PriorityQueue<>();
-        dist[start][0] = 0;
-        pq.add(new info(start, 0, 0));
+        pq.add(new info(1, 0, 0));
 
         while(!pq.isEmpty()) {
             info front = pq.poll();
@@ -88,51 +93,24 @@ public class Main {
             int c = front.cost;
             int t = front.time;
 
-            if(s == N) {
-                break;
-            }
-
-            if(dist[s][c] < t) {
-                continue;
-            }
+            if (answer <= dist[s][c]) continue;
 
             for(var nextInfo: graph.get(s)) {
                 int e = nextInfo.destination;
                 int nc = c + nextInfo.cost;
-                int nt = t + nextInfo.time;
+                int nt = dist[s][c] + nextInfo.time;
 
-                if(nc > M) {
+                if(nc > M) continue;
+                if(answer <= nt) continue;
+                if(e == N) {
+                    answer = nt;
                     continue;
                 }
 
-                if(dist[e][nc] <= nt) {
-                    continue;
-                }
-
-                // dp 최적화
-                for(int i=nc; i<=M; ++i) {
-                    if(dist[e][i] > nt) {
-                        dist[e][i] = nt;
-                    }
-                }
-                pq.add(new info(e, nc, nt));
+                if(dist[e][nc] <= nt) continue;
+                if(dist[e][nc] == INF) pq.add(new info(e, nc, nt));
+                dist[e][nc] = nt;
             }
         }
     }
-
-    public static void output() throws IOException {
-        int answer = getAnswer();
-        bw.write((answer != INF ? answer : "Poor KCM") + "\n");
-        bw.flush();
-    }
-
-    public static int getAnswer() {
-        int answer = INF;
-        for(int i=0; i<=M; ++i) {
-            answer = Math.min(answer, dist[N][i]);
-        }
-
-        return answer;
-    }
-
 }
