@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -75,6 +76,7 @@ public class Main {
 			}
 		}
 
+		Collections.sort(answer);
 		bw.write(answer.size() + "\n");
 		for (int ans : answer)
 			bw.write(ans + "\n");
