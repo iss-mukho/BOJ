@@ -1,56 +1,56 @@
-// 백준 1931: 회의실 배정(실버 I), https://www.acmicpc.net/problem/1931
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class Main {
+	static ArrayList<Meeting> Meetings = new ArrayList<>();
 
-    public static class MeetingType{
-        int startTime;
-        int endTime;
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringTokenizer st;
 
-        public MeetingType(int startTime, int endTime) {
-            this.startTime = startTime;
-            this.endTime = endTime;
-        }
-    }
+		int N = Integer.parseInt(br.readLine());
+		for(int i = 0; i < N; ++i) {
+			st = new StringTokenizer(br.readLine());
+			Meetings.add(new Meeting(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())));
+		}
 
-    static ArrayList<MeetingType> meeting = new ArrayList<>();
-    static int meetingCount;
-    static int possibleMeetingCount = 0;
+		Collections.sort(Meetings);
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st;
+		int answer = 1;
+		int roomEnd = Meetings.get(0).endTime;
+		for(int i = 1; i < N; ++i) {
+			Meeting currentMeeting = Meetings.get(i);
+			if(roomEnd > currentMeeting.startTime) continue;
+			++answer;
+			roomEnd = currentMeeting.endTime;
+		}
 
-        // 입력
-        st = new StringTokenizer(br.readLine());
-        meetingCount = Integer.parseInt(st.nextToken());
+		bw.write(answer + "\n");
+		bw.flush();
+		br.close();
+		bw.close();
+	}
+}
 
-        for(int i=0; i<meetingCount; ++i){
-            st = new StringTokenizer(br.readLine());
-            int startTime = Integer.parseInt(st.nextToken()), endTime = Integer.parseInt(st.nextToken());
-            meeting.add(new MeetingType(startTime, endTime));
-        }
+class Meeting implements Comparable<Meeting> {
+	int startTime;
+	int endTime;
 
-        // 처리
-        Collections.sort(meeting, (meet1, meet2) -> (meet1.endTime != meet2.endTime) ? meet1.endTime - meet2.endTime : meet1.startTime - meet2.startTime);
-        int currentTime = 0;
-        for(var currentMeeting: meeting){
-            int startTime = currentMeeting.startTime, endTime = currentMeeting.endTime;
+	public Meeting(int startTime, int endTime) {
+		this.startTime = startTime;
+		this.endTime = endTime;
+	}
 
-            if(startTime < currentTime) continue;
-
-            currentTime = endTime;
-            ++possibleMeetingCount;
-        }
-
-        // 출력
-        bw.write(possibleMeetingCount + "\n");
-
-        br.close();
-        bw.close();
-    }
+	@Override
+	public int compareTo(Meeting other) {
+		if(this.endTime == other.endTime) return this.startTime - other.startTime;
+		return this.endTime - other.endTime;
+	}
 }
