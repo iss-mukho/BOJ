@@ -63,11 +63,12 @@ public class Main {
 		dijkstra(X);
 
 		for (int i = 1; i <= N; i++) {
-			bw.write(dist[i] == K ? i + "\n" : "");
+			if(dist[i] != K) continue;
+			bw.write(i + "\n");
 			++answer;
 		}
 
-		bw.write(answer == 0 ? "-1\n" : "\n");
+		bw.write(answer == 0 ? "-1\n" : "");
 		bw.flush();
 		br.close();
 		bw.close();

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_1016" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_10714" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_10820" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_11382" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_1157" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_11656" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_12100" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_1374" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_1377" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_1389" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_14466" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_1517" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_16234" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_1707" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_1764" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_18108" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_24262" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_24263" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_5014" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_9095" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BOJ_9251" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
