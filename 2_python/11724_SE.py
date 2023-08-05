@@ -1,3 +1,7 @@
+import sys
+input = sys.stdin.readline
+sys.setrecursionlimit(10000)
+
 N, M = map(int, input().split())
 
 def dfs(v):
