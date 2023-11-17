@@ -2,80 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="daa52721-0e5a-4fa0-aed3-7e946097139e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_10217/BOJ_10217.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_10282/BOJ_10282.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_10423/BOJ_10423.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1069/BOJ_1069.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_10807/BOJ_10807.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_10867/BOJ_10867.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_10986/BOJ_10986.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_11052/BOJ_11052.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_11279/BOJ_11279.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_11286/BOJ_11286.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_11399/BOJ_11399.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_11403/BOJ_11403.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_11404/BOJ_11404.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_11404_SE/BOJ_11404_SE.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1158/BOJ_1158.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_11659/BOJ_11659.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_11660/BOJ_11660.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_11724/BOJ_11724.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1197/BOJ_1197.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1197_SE/BOJ_1197_SE.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1260/BOJ_1260.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1261/BOJ_1261.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_12869/BOJ_12869.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_13023/BOJ_13023.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1305/BOJ_1305.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1325/BOJ_1325.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_14438/BOJ_14438.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_14938/BOJ_14938.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_15649/BOJ_15649.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_15650/BOJ_15650.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1717/BOJ_1717.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1717_SE/BOJ_1717_SE.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_17396/BOJ_17396.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1753/BOJ_1753.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1753_SE/BOJ_1753_SE.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1759/BOJ_1759.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_17608/BOJ_17608.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_18352/BOJ_18352.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_18352_SE/BOJ_18352_SE.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_18352_SE/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/3_java/BOJ_18352_SE/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1874/BOJ_1874.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1912/BOJ_1912.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1916/BOJ_1916.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1927/BOJ_1927.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1931/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/3_java/BOJ_1931/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1931/BOJ_1931.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1932/BOJ_1932.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_1976/BOJ_1976.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_2018/BOJ_2018.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_2023/BOJ_2023.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_2042/BOJ_2042.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_2164/BOJ_2164.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_2178/BOJ_2178.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_2252/BOJ_2252.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_2293/BOJ_2293.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_2294/BOJ_2294.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_2357/BOJ_2357.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_23883/BOJ_23883.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_2458/BOJ_2458.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_2493/BOJ_2493.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_2583/BOJ_2583.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_2660/BOJ_2660.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_2667/BOJ_2667.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_2839/BOJ_2839.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_2961/BOJ_2961.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_3055/BOJ_3055.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_4386/BOJ_4386.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_4963/BOJ_4963.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_5073/BOJ_5073.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_6213/BOJ_6213.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_8871/BOJ_8871.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_9655/BOJ_9655.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_9656/BOJ_9656.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3_java/BOJ_9742/BOJ_9742.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,19 +15,22 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
   <component name="ProjectId" id="2THHnAhky9XMX9iWkogwTBL6lgw" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/KoMoGoon/Desktop/BOJ",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/KoMoGoon/Desktop/BOJ&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="BOJ" />
@@ -125,7 +55,11 @@
       <option name="presentableId" value="Default" />
       <updated>1690693250381</updated>
       <workItem from="1690693251448" duration="56000" />
+      <workItem from="1700206520038" duration="97000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
