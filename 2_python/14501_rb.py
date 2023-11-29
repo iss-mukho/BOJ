@@ -8,12 +8,12 @@ for i in range(N):
 
 dp = [0] * (N + 1)
 
-for i in range(N):
+for i in range(N - 1, -1, -1):
     j = i + T[i]
     if j > N:
-        dp[i] = dp[i - 1]
+        dp[i] = dp[i + 1]
         continue
 
-    dp[i] = max(dp[j] + P[i], dp[i - 1])
+    dp[i] = max(dp[j] + P[i], dp[i + 1])
 
 print(dp[0])
