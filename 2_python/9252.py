@@ -18,3 +18,8 @@ for i in range(1, lenA + 1):
 print(dp[lenA][lenB][0])
 if dp[lenA][lenB][0]:
   print(dp[lenA][lenB][1])
+
+'''
+Python 3 시간 초과
+접근을 dp에 문자열 계속 더해가는 방식으로 하면 n이 커지면 숫자만 쓰는 dp보다 많이 느리다고 한다.
+'''
